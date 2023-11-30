@@ -1,0 +1,464 @@
+AWS DEVOPS Course
+=========================================
+1st class
+==================
+pwd
+Present working directory
+
+ll
+Long list
+
+Folder ==> */ ==> naveen/ pavan/ ashok/ Nyera/
+files  ==> *.*  => a.txt b.java c.xls
+ls 
+
+ls -lrt
+
+mkdir AWS_Devops_nyera
+
+cd ==> change directory
+cd Nyera/
+
+cd ..
+
+cd ../../
+
+cd ../../../
+
+cd 
+
+cd -
+
+touch a.txt
+
+rm <filename> ==> rm a.txt b.java
+rm -rf <>folder
+
+ls *.txt
+ll */
+
+
+
+whoami
+rename 
+
+rename
+==================
+mv <current_file> <new_file>
+mv dev.war qa.war
+
+cut
+===========
+mv <current_path_name> <destination_path_name>
+
+mv *.java ee/
+
+
+
+2nd & 3rd class
+========================================================================
+vim <file_name>
+esc + :wq! ===> w(save) q(quit)
+crtl + l or clear 
+
+cat <file_name>
+> 
+>>
+
+cp <file_name> <destination_path>
+cp a.java aa/
+
+ll | wc 
+
+esc + dd
+esc + :1
+
+head ==> it will print top 10 lines
+
+tail ==> It will print bottom 10 lines
+
+sed ===> If you want to print specific line ==> sed -n 5p 
+
+awk 
+
+total 9
+-rw-r--r-- 1 hp 197121 1678 Nov  8  2022 Aws_Linux_Virginia.pem
+-rw-r--r-- 1 hp 197121    0 Nov 21 09:59 e.xls
+-rw-r--r-- 1 hp 197121    0 Nov 21 09:59 f.xls
+-rw-r--r-- 1 hp 197121    0 Nov 22 09:27 qa.war
+-rw-r--r-- 1 hp 197121  102 Nov 22 09:35 b.txt
+-rw-r--r-- 1 hp 197121 1055 Nov 22 09:55 a.txt
+
+awk '{print $2}'
+
+
+esc + /<search_word>
+esc + :set nu
+
+
+
+4th class
+===================================================================
+Amazon web services
+=====================
+
+Region
+
+Availability zone==> az
+
+datacenter ==> DC
+
+Ec2 ===> elastic Cloud computing
+
+
+
+Name and tags
+===========
+Test Instance
+
+
+Amazon Machine Image(AMI)
+=========================
+ubuntu
+RHEL(Red hat enterpraise linux)
+centos
+Amazon linux                             root (Super user ) | sudo user 
+
+suse
+windows
+Debeian
+
+
+
+Instance type        
+================
+t1.micro
+
+
+Instance Family type
+T
+C
+
+
+Key pair (login) 
+================
+Nyeras
+
+
+
+
+Network settings 
+=====================
+
+
+
+
+(Network security groups)===> NSG  => using ports & protocals 
+
+Flipkart
+=============
+
+Java Python .net ==> language
+
+Executable format ==> .war .jar .ear 
+
+application servers ==> tomcat jboss glassfish etc..,
+
+Ingress == Inbound rules
+
+Outbound  == egress
+
+
+Source Type 
+=============
+Anywhere ==> all over interbet
+Myip     ==> localhost
+Custom   ==> Organisation
+
+
+Configure storage
+==================
+general Purpose
+Provisioned
+Magnetic 
+
+
+sudo apt update -y 
+
+amazon Linux | redhat | centos                    ubuntu
+
+yum                                               apt 
+                                                 sudo apt update -y 
+
+sudo yum install java                            sudo apt install java
+sudo yum install python                          sudo apt install python 
+
+
+
+
+website 
+==================
+xyz.com
+
+
+html , css etc
+
+webservers 
+httpd , nginx apache2
+
+
+systemctl status|stop|start|restart  apache2 
+
+
+
+
+
+
+Private  Ip     &     Public IP 
+                       internet exposed 
+10                    apart from 10,172,198
+172
+198
+
+
+172.31.25.208           54.235.28.12
+
+Naraya
+Intermediate 1st year    123456789
+159
+
+
+
+
+========================================================
+5th & 6th class
+===================================
+User and groups and permissions
+
+How to create a group ?
+groupadd cricket
+
+
+how to change the permissions?
+chmod 777 naveen/
+
+
+root
+home directory => /root
+
+cat /etc/passwd ===> users list 
+
+
+useradd naveen  ==> cat /etc/passwd 
+passwd naveen
+
+
+How to add users to particular group ?
+usermod -a -G cricket virat
+
+Example:
+
+id virat
+uid=1002(virat) gid=1003(virat) groups=1003(virat)
+
+
+id virat
+uid=1002(virat) gid=1003(virat) groups=1003(virat),1002(cricket)
+
+
+
+How to change group name to particular folder ?
+chown -R root:cricket naveen 
+
+Example:
+==============================================
+root@ip-172-31-25-208:~# ls -lrt
+total 12
+drwx------ 4 root root 4096 Nov 23 04:29 snap
+-rw-r--r-- 1 root root   62 Nov 23 04:35 a.txt
+drwxr-xr-x 2 root root 4096 Nov 28 03:54 naveen
+root@ip-172-31-25-208:~# chown -R root:cricket naveen
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~# ls -lrt
+total 12
+drwx------ 4 root root    4096 Nov 23 04:29 snap
+-rw-r--r-- 1 root root      62 Nov 23 04:35 a.txt
+drwxr-xr-x 2 root cricket 4096 Nov 28 03:54 naveen
+root@ip-172-31-25-208:~#
+
+How to chnage the permissions ?
+chmod 777 naveen/
+
+
+
+
+root@ip-172-31-25-208:~# mkdir naveen
+root@ip-172-31-25-208:~# ls -lrt
+total 12
+drwx------ 4 root root 4096 Nov 23 04:29 snap
+-rw-r--r-- 1 root root   62 Nov 23 04:35 a.txt
+drwxr-xr-x 2 root root 4096 Nov 28 03:54 naveen
+
+-rw-r--r-- 1 root root    0 Nov 28 04:39 b.txt
+644 ==> default file permissions
+755 ==> default directory permissions
+
+r  ==> read = 4
+w  ==> write = 2
+x  ==> execute =1 
+
+rwx         r-x        r-x
+4+2+1 = 7     4+0+1  =5    4+0+1 = 5
+
+755 
+
+
+How to delete users ?
+
+example: 
+
+cat /etc/passwd | grep -i virat
+virat:x:1002:1003::/home/virat:/bin/sh
+root@ip-172-31-25-208:~# userdel virat
+root@ip-172-31-25-208:~# cat /etc/passwd | grep -i virat
+
+
+How to delete groups ?
+
+example;
+groupdel cricket
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~# cat /etc/group | grep -i cricket
+
+
+How to delete users from group ?
+
+gpasswd -d(delete) <username> <groupname>
+
+gpasswd -d naveen ipl
+
+Example:
+
+root@ip-172-31-25-208:~# usermod -a -G ipl naveen
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~# id naveen
+uid=1001(naveen) gid=1001(naveen) groups=1001(naveen),1006(ipl)
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~# gpasswd -d naveen ipl
+Removing user naveen from group ipl
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~#
+root@ip-172-31-25-208:~# id naveen
+uid=1001(naveen) gid=1001(naveen) groups=1001(naveen)
+
+==================================================================
+
+chmod 700 -R cloud/
+
+chmod 444 Cloud/
+
+dr--r--r-- 3 root root 4096 Nov 29 03:44 Cloud
+
+
+chmod 666 Cloud/
+
+chmod ugo+w Cloud/
+
+drw-rw-rw- 3 root root 4096 Nov 29 03:44 Cloud
+
+How to find free space ?
+free -m
+
+How to find out particular file ?
+
+locate <file_name> ===> locate devops.txt
+
+find / -name <file_name>  ===> find / -name f devops.txt
+
+============================================================
+
+===========================================================
+7Th class
+======================================================
+
+SSH tools
+=======================
+
+gitbash
+mobaxterm
+putty or putty gen
+
+required details to connect to instance
+1) username , Password & IP address or .Pem file
+
+
+How to install gitbash
+apt install gitbash
+
+how to initialize git in particular project ?
+git init
+
+How to check the status ?
+git status
+
+How to push your code or files from working directory to staging area or index area ?
+git add a.java 
+
+
+How to push your code or file from staging area to local repo ?
+git commit -m "My first code"
+
+root@ip-172-31-25-208:~/Nyera# git commit -m "My first code"
+[master (root-commit) 329a3d4] My first code
+ Committer: root <root@ip-172-31-25-208.ec2.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 7 insertions(+)
+ create mode 100644 a.java
+
+
+
+What is the default branch ?
+master
+
+root@ip-172-31-25-208:~/Nyera# git status
+On branch master
+nothing to commit, working tree clean
+
+
+
+what is the command to check in local repository ?
+git log
+
+root@ip-172-31-25-208:~/Nyera# git log
+commit 329a3d4a8710b0dbd43c4ffac3c1e150facf10d3 (HEAD -> master)
+Author: root <root@ip-172-31-25-208.ec2.internal>
+Date:   Thu Nov 30 04:20:46 2023 +0000
+
+    My first code
+
+Sha256 alogorithm 
+
+How to check the connection between local & remote repo ?
+
+git remote -v 
+
+
+How to add connection between local & remote ?
+
+root@ip-172-31-25-208:~/Nyera# git remote add origin https://github.com/naveen5758/nyera_Devops.git
+root@ip-172-31-25-208:~/Nyera# git remote -v
+origin  https://github.com/naveen5758/nyera_Devops.git (fetch)
+origin  https://github.com/naveen5758/nyera_Devops.git (push)
+
