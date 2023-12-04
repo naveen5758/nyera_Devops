@@ -393,8 +393,8 @@ required details to connect to instance
 1) username , Password & IP address or .Pem file
 
 
-How to install gitbash
-apt install gitbash
+How to install git on ubuntu?
+apt install git
 
 how to initialize git in particular project ?
 git init
@@ -461,4 +461,80 @@ root@ip-172-31-25-208:~/Nyera# git remote add origin https://github.com/naveen57
 root@ip-172-31-25-208:~/Nyera# git remote -v
 origin  https://github.com/naveen5758/nyera_Devops.git (fetch)
 origin  https://github.com/naveen5758/nyera_Devops.git (push)
+
+==============================================
+
+Class 8
+
+git show d426ca51d6f96a1b34df55f8be9549056d4b6689
+
+How to set username ?
+git config -global user.name <Name>
+
+git config --global user.name "Naveen"
+
+How to set emailaddress ?
+git config --global user.email "Naveen@gmail.com"
+
+
+How to move your files from staging area to working directory ?
+
+git reset 
+
+
+How to move your files from working to staging and local ?
+
+git add . && git commit -m "Updated"
+
+
+ 7ff6033e96e45bcfbf1e8cb0fa90f5aa5af9e8d1 
+ 
+ 
+ How to bring you files from local repo to staging ?
+ 
+ 
+ what is the difference between hard & soft ?
+ git reset --hard 6e9558c18a4e4063a7d8db343b01c3d0208c237c
+ 
+ git reset --soft 
+ =====================================
+ 
+ Class 9
+ 
+ git log --oneline
+ 
+ root@ip-172-31-25-208:~/Wipro# git branch
+* master
+
+root@ip-172-31-25-208:~/Wipro# git branch
+* master
+
+How to create develop branch ?
+git branch develop
+
+How to create branch ?
+git branch
+
+How to switch to develop branch ?
+git checkout develop
+Switched to branch 'develop'
+
+root@ip-172-31-25-208:~/Wipro# git branch
+* develop
+  master
+  
+How to create branch & switch branch ?
+
+root@ip-172-31-25-208:~/Wipro# git branch feature
+root@ip-172-31-25-208:~/Wipro#
+root@ip-172-31-25-208:~/Wipro# git branch
+* develop
+  feature
+  master
+
+root@ip-172-31-25-208:~/Wipro# git checkout feature
+Switched to branch 'feature'
+
+
+
 
