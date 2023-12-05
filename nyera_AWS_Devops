@@ -535,6 +535,91 @@ root@ip-172-31-25-208:~/Wipro# git branch
 root@ip-172-31-25-208:~/Wipro# git checkout feature
 Switched to branch 'feature'
 
+===============================================================================
 
+
+Class 10
+
+
+How to create branch and switch using single command ?
+git checkout -b feature
+
+
+How to switch to particular branch ?
+git checout <branch_name>
+
+how to delete particular branch ?
+git branch -d QA
+Deleted branch QA (was 2b2747a).
+
+
+
+How to merge feature branch into develop ?
+git rebase develop 
+
+root@ip-172-31-25-208:~/tcs# git rebase develop
+Successfully rebased and updated refs/heads/master.
+root@ip-172-31-25-208:~/tcs#
+root@ip-172-31-25-208:~/tcs#
+root@ip-172-31-25-208:~/tcs# ll
+total 12
+drwxr-xr-x 3 root root 4096 Dec  5 04:31 ./
+drwxrwxrwx 8 root root 4096 Dec  5 04:31 ../
+drwxr-xr-x 8 root root 4096 Dec  5 04:31 .git/
+-rw-r--r-- 1 root root    0 Dec  5 03:42 a.java
+-rw-r--r-- 1 root root    0 Dec  5 04:31 c.java
+root@ip-172-31-25-208:~/tcs# git log
+commit 55ae413f537d49e66157f6db0034b11c95cb8ff8 (HEAD -> master, develop)
+Author: Naveen <Naveen@gmail.com>
+Date:   Tue Dec 5 03:56:21 2023 +0000
+
+    c.java
+
+commit 2a3dd9857ccc9fe43c7d07995ef8183a573b16cc
+Author: Naveen <Naveen@gmail.com>
+Date:   Tue Dec 5 03:43:17 2023 +0000
+
+    a.java
+
+
+
+
+
+GIT MERGE & REBASE
+====================================
+Git merge develop
+
+root@ip-172-31-25-208:~/tcs# git merge develop
+Merge made by the 'ort' strategy.
+ c.java | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 c.java
+root@ip-172-31-25-208:~/tcs# git log
+
+
+commit eff017944c84dc3e57727ee18ae1fbdc721c52a7 (HEAD -> feature)
+Merge: 2b2747a 55ae413
+Author: Naveen <Naveen@gmail.com>
+Date:   Tue Dec 5 04:24:50 2023 +0000
+
+    Merge branch 'develop' into feature
+
+commit 55ae413f537d49e66157f6db0034b11c95cb8ff8 (develop)
+Author: Naveen <Naveen@gmail.com>
+Date:   Tue Dec 5 03:56:21 2023 +0000
+
+    c.java
+
+commit 2b2747a9494c1989fe766bb71a59f727fe6721bc
+Author: Naveen <Naveen@gmail.com>
+Date:   Tue Dec 5 03:49:05 2023 +0000
+
+    b.java
+
+commit 2a3dd9857ccc9fe43c7d07995ef8183a573b16cc (master)
+Author: Naveen <Naveen@gmail.com>
+Date:   Tue Dec 5 03:43:17 2023 +0000
+
+    a.java
 
 
