@@ -623,3 +623,173 @@ Date:   Tue Dec 5 03:43:17 2023 +0000
     a.java
 
 
+==================================================
+
+Class 11
+
+
+root@ip-172-31-25-208:~/Development# git branch
+* QA
+  develop
+  feature
+  master
+root@ip-172-31-25-208:~/Development# git checkout feature
+Switched to branch 'feature'
+root@ip-172-31-25-208:~/Development# git branch
+  QA
+  develop
+* feature
+  master
+root@ip-172-31-25-208:~/Development# git branch -d QA
+Deleted branch QA (was 2f821ed).
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development# git branch
+  develop
+* feature
+  master
+
+
+root@ip-172-31-25-208:~/Development# git checkout develop
+Switched to branch 'develop'
+root@ip-172-31-25-208:~/Development# ll
+total 12
+drwxr-xr-x 3 root root 4096 Dec  6 03:56 ./
+drwxrwxrwx 9 root root 4096 Dec  6 03:56 ../
+drwxr-xr-x 8 root root 4096 Dec  6 03:56 .git/
+-rw-r--r-- 1 root root    0 Dec  6 03:42 a.java
+root@ip-172-31-25-208:~/Development# git log
+commit c73a5141b890b0b9c17039935a277c6e15ea8c82 (HEAD -> develop, master)
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:42:53 2023 +0000
+
+    a.java
+root@ip-172-31-25-208:~/Development# touch c.java
+
+
+root@ip-172-31-25-208:~/Development# git add . && git commit -m "c.java"
+[develop 9e92a98] c.java
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 c.java
+root@ip-172-31-25-208:~/Development# git status
+On branch develop
+nothing to commit, working tree clean
+root@ip-172-31-25-208:~/Development# ll
+total 12
+drwxr-xr-x 3 root root 4096 Dec  6 03:56 ./
+drwxrwxrwx 9 root root 4096 Dec  6 03:56 ../
+drwxr-xr-x 8 root root 4096 Dec  6 03:57 .git/
+-rw-r--r-- 1 root root    0 Dec  6 03:42 a.java
+-rw-r--r-- 1 root root    0 Dec  6 03:56 c.java
+
+
+root@ip-172-31-25-208:~/Development# git log
+commit 9e92a98ddbe101234b4b38ffdbe384ba3746ccbe (HEAD -> develop)
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:57:33 2023 +0000
+
+    c.java
+
+commit c73a5141b890b0b9c17039935a277c6e15ea8c82 (master)
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:42:53 2023 +0000
+
+    a.java
+
+
+root@ip-172-31-25-208:~/Development# git branch
+* develop
+  feature
+  master
+root@ip-172-31-25-208:~/Development# ll
+total 12
+drwxr-xr-x 3 root root 4096 Dec  6 03:56 ./
+drwxrwxrwx 9 root root 4096 Dec  6 03:58 ../
+drwxr-xr-x 8 root root 4096 Dec  6 03:57 .git/
+-rw-r--r-- 1 root root    0 Dec  6 03:42 a.java
+-rw-r--r-- 1 root root    0 Dec  6 03:56 c.java
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development# git merge feature
+Merge made by the 'ort' strategy.
+ b.java | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.java
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development#
+root@ip-172-31-25-208:~/Development# ll
+total 12
+drwxr-xr-x 3 root root 4096 Dec  6 03:59 ./
+drwxrwxrwx 9 root root 4096 Dec  6 03:58 ../
+drwxr-xr-x 8 root root 4096 Dec  6 03:59 .git/
+-rw-r--r-- 1 root root    0 Dec  6 03:42 a.java
+-rw-r--r-- 1 root root    0 Dec  6 03:59 b.java
+-rw-r--r-- 1 root root    0 Dec  6 03:56 c.java
+
+
+root@ip-172-31-25-208:~/Development# git log
+commit 114b47bfdbcb950d26e737a1b2535a4c8b22ab3e (HEAD -> develop)
+Merge: 9e92a98 2f821ed
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:59:29 2023 +0000
+
+    Merge branch 'feature' into develop
+
+commit 9e92a98ddbe101234b4b38ffdbe384ba3746ccbe
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:57:33 2023 +0000
+
+    c.java
+
+commit 2f821ed809447cfb39171ea3e41f965cf857a533 (feature)
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:47:40 2023 +0000
+
+    b.java
+
+commit c73a5141b890b0b9c17039935a277c6e15ea8c82 (master)
+Author: Naveen <Naveen@gmail.com>
+Date:   Wed Dec 6 03:42:53 2023 +0000
+
+    a.java
+
+
+
+How to get particular file ?
+cherry-pick 
+git cherry-pick 1c983e7494348c576d8065caa794ff739aa777c3
+
+
+
+How to clone entire repository ?
+git clone <GIT_HUB_REPO_URL>
+https://github.com/naveen5758/nyera_Devops.git
+
+How to featch the chnages ?
+git fetch https://github.com/naveen5758/nyera_Devops.git
+
+how to  use pull command ?
+git pull https://github.com/naveen5758/nyera_Devops.git
+
+
+PUSH & PULL & FETCH
+
+git fetch origin master
+
+root@ip-172-31-25-208:~/Quest/nyera_Devops# git status
+On branch master
+Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+root@ip-172-31-25-208:~/Quest/nyera_Devops# git pull
+Updating 919c00f..c739c6a
+Fast-forward
+ b.java | 2 ++
+ c.java | 1 +
+ 2 files changed, 3 insertions(+)
+ create mode 100644 c.java
+
