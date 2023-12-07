@@ -793,3 +793,33 @@ Fast-forward
  2 files changed, 3 insertions(+)
  create mode 100644 c.java
 
+
+
+
+===============================================================================
+
+Class 12
+
+How to push develop branch on master repositiry ?
+
+root@ip-172-31-25-208:~/Amazon/nyera_Devops# git remote -v
+origin  https://github.com/naveen5758/nyera_Devops.git (fetch)
+origin  https://github.com/naveen5758/nyera_Devops.git (push)
+root@ip-172-31-25-208:~/Amazon/nyera_Devops# git push origin develop
+
+
+How to clone from specific branch ?
+git clone -b develop https://github.com/naveen5758/nyera_Devops.git 
+
+
+How to check the difference between 1 branch to another branch ?
+
+root@ip-172-31-25-208:~/Amazon/nyera_Devops# git diff feature master
+diff --git a/d.java b/d.java
+deleted file mode 100644
+index e69de29..0000000
+root@ip-172-31-25-208:~/Amazon/nyera_Devops# ll
+
+
+PUll == PULL(working directory)
+fetch ==> Fetch(local)  + pull or merge (working) 
