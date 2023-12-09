@@ -1,0 +1,36 @@
+1. ll (list the all files and folders)
+2. ls (short list the all files and folders)
+3. ll */(list only all folders)
+4. ll . (list only all files)   
+5. touch <name> (create new file)
+6. mkdir <name> (create a directory)
+7. rm <filename> (remove a file)
+8. rm -rf <foldername> (remove the folder and file also)
+9. cat <filename> (display the content in a file)
+10. vi <filename> (open file in vi editor)
+11. cat >> <filename (append the text to file)
+12. cat > <filename> (add content to file and delete the  previous content)
+13. pwd (displays the current working directory path>
+14. sudo su - root( switch to sudo user)
+15. su - <username> (switch to normal user)
+16. reset/clear (clear the screen)
+17. cd (jump to the working directory of user)
+18. cd .. (jump to previous folder of current directory)
+19. tree (dispays the tree structure of folders)
+20. grep -i <word> (used to displays the lines which having given word irrespective of case)
+21. sed -i 's/sorce/target/g' (sed is stream editor used to replace the target in place of source in a file)
+       here s = substitute
+            source=	is a word/pattern which has to be changed
+            target= is word/pattern which will replaced in place of source
+22. awk - is used for pattern search and processing when text is matched with pattern in a file
+23. awk [option] /pattern/ [action] <filename>
+    awk '{print $0}' <filename> (displays the whole content in a file)
+    awk '{print $1}' <filename> (displays only first columns in a file)
+    awk /pattern/letter/ '{print $0}' (displays data which matches given /pattern or letter/ in file
+24. find / -name  <filename or folder name> (it searches from base directory if it finds given file/folder then it gives path of that file or folder )
+25. find . -name <filename or foldername> (it searches only from cureent directory if it finds given file/folder then it gives path of that file or folder)	
+26. <username> -a (displays os running on current machine)
+26. df -kh (d-disk, f-files, k - kilobyte , h- hunman readable format)
+    lsblk  (both are used for see the disk space of current machine)
+
+27)press esc then :wq!
