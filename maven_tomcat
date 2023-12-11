@@ -1,0 +1,20 @@
+Class 13
+===================================
+Maven 
+
+javac Helloworld.java        ======>   java Helloworld.class      ========>       hello, world
+                 compilation/javac                          execuation/java 
+				 
+
+                                                                                                           Binaries (.war | .jar | .ear )
+
+javac Helloworld1000.java        ======>   java Helloworld1000.class      ========>       hello, world
+                 compilation/javac                          execuation/java 
+
+
+
+maven
+===============
+java  ===> class ==> testcases ===> binaries | artifacts | Delevarables | packaging(.war | .jar | .ear) ===> deploy
+
+pom.xml ===> project object model 
