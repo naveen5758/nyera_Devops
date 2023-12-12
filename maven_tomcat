@@ -1,3 +1,5 @@
+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
+
 Class 13
 ===================================
 Maven 
@@ -18,3 +20,122 @@ maven
 java  ===> class ==> testcases ===> binaries | artifacts | Delevarables | packaging(.war | .jar | .ear) ===> deploy
 
 pom.xml ===> project object model 
+
+
+======================
+Class 13
+
+maven ===> goals ===> plugin ====> task
+
+Maven Lifecycle
+=================================
+1)clean  ==> This phase clean the temporary and runtime files.
+
+2)default ===> Build Lifecycle 
+- prepare-resources ===> resource copying --> Resource copying can be customized in this phase.
+- validate          ===> Validates if the project is correct and if all necessary information is available(POM.xml)
+- compile           ===> Source code compilation is done in this phase
+- test              ===> Tests the compiled source code suitable for testing framework
+- package           ===> This phase creates the JAR/WAR package as mentioned in the packaging in POM.xml.
+- install           ===> This phase installs the package in local/remote maven repository
+- deploy            ===> Copies the final package to the remote repository/server.
+
+3)site
+This phase is generally used to create fresh documentation to create reports, deploy site, etc
+
+
+maven steps to install
+============================
+apt install java 
+    java --version
+    openjdk 11.0.21 2023-10-17
+    OpenJDK Runtime Environment (build 11.0.21+9-post-Ubuntu-0ubuntu122.04)
+    OpenJDK 64-Bit Server VM (build 11.0.21+9-post-Ubuntu-0ubuntu122.04, mixed mode, sharing)
+apt install maven 
+    mvn --version
+    Apache Maven 3.6.3
+
+
+Jar files
+mvn archetype:generate -DgroupId=retail -DartifactId=hdfc -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+war file:
+mvn archetype:generate -DgroupId=com.citi -DartifactId=citibank -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+ear file
+mvn archetype:generate -DgroupId=com.packt.cookbook -DartifactId=simple-ear -DarchetypeArtifactId=wildfly-javaee7-webapp-ear-archetype -DinteractiveMode=org.wildfly.archetype -DinteractiveMode=false	
+
+
+mvn archetype:generate
+Define value for property 'groupId': hdfc
+Define value for property 'artifactId': bank
+Define value for property 'version' 1.0-SNAPSHOT: : 1.0-SNAPSHOT
+Define value for property 'package' hdfc: .jar
+
+Confirm properties configuration:
+groupId: hdfc
+artifactId: bank
+version: 1.0-SNAPSHOT
+package: hdfc
+
+
+
+HDFC or whatsapp
+Major version
+1.*
+2.*
+3.*
+4.*
+5.*
+
+Minor version
+1.1 or 1.2 or 1.3
+
+2.1 or 2.2 or 2.3
+
+
+
+GroupId: ProjectName/ Organisation Name
+ArtifactId : Filename
+Version: Developer/Release version
+Package: jar|war|ear
+
+pom.xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>retail</groupId>
+  <artifactId>hdfc</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>hdfc</name>
+  <url>http://maven.apache.org</url>
+<properties>
+   <maven.compiler.source>1.6</maven.compiler.source>
+   <maven.compiler.target>1.6</maven.compiler.target>
+ </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+
+
+
+mvn clean package ===> mvn clean + mvn package 
+
+
+
+
+
+
+
+
+
