@@ -1,4 +1,3 @@
-
 Class 13
 ===================================
 Maven 
@@ -60,7 +59,7 @@ mvn archetype:generate -DgroupId=retail -DartifactId=hdfc -Dversion=1.0-SNAPSHOT
 
 
 war file:
-mvn archetype:generate -DgroupId=com.citi -DartifactId=citibank -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.canara -DartifactId=canara -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 
 
 ear file
@@ -131,10 +130,102 @@ pom.xml
 mvn clean package ===> mvn clean + mvn package 
 
 
+Class 15
+================================================
+
+/root/.m2/repository/org/apache/maven/plugins
 
 
 
+ip-172-31-25-208
+
+====================================================================================
+Class 16
+
+Password communication
+
+root@ip-172-31-89-181: hostname -i
+root@ip-172-31-89-181:~# hostname server1
+root@ip-172-31-89-181:~#
+root@ip-172-31-89-181:~# sudo su -
+root@server1:~#
+
+1)
+vim /etc/ssh/sshd_config 
 
 
+#PermitRootLogin prohibit-password  ===> 
+PermitRootLogin yes
+Allowusers root ubuntu
+
+PasswordAuthentication no  ===> PasswordAuthentication yes
+
+2)
+systemctl status sshd.service  ==> systemctl restart sshd.service
+
+3)
+root@server1:/etc/ssh# passwd root
+New password:
+Retype new password:
+passwd: password updated successfully
+
+cp a.java tcs/
+
+scp -r <filename> user@<Private_Ip>:<destination_path>
+
+scp -r a.java root@172.31.25.208:/root/tcs
+
+scp -r canara.war root@172.31.89.181:/root
+===================
+Passwordless communication
 
 
+Server1
+
+root@server1:~# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:gcK/CaiAzoNq9hHQN5DMA9PIK2cxXEwR3obYoac3oYQ root@server1
+The key's randomart image is:
++---[RSA 3072]----+
+|.+*=Bo           |
+| +*%o+ .         |
+|E.=+Xo+ .        |
+|oo+=.=.  .       |
+|+o+.+ . S        |
+|=. ..o o         |
+|o+ .  o          |
+|.o. .            |
+|+ ..             |
++----[SHA256]-----+
+
+root@server1:~# cd  /root/.ssh/
+root@server1:~/.ssh# ls -lrt
+total 20
+-rw------- 1 root root  552 Dec 14 03:39 authorized_keys
+-rw-r--r-- 1 root root  142 Dec 14 03:57 known_hosts.old
+-rw------- 1 root root  978 Dec 14 03:57 known_hosts
+-rw-r--r-- 1 root root  566 Dec 14 04:04 id_rsa.pub
+-rw------- 1 root root 2602 Dec 14 04:04 id_rsa
+root@server1:~/.ssh# cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCkSQLTRdCZF4dgxzBRms1jpHEMUSCJingzLtTKnIckbI7e+q7J7lInul4g5nB76RawFgsPOvTkABFdq8KjUP+DZbGogeVfNYDV0X9PfWDHkcCYRdTPjy4u7lQPIn2LDGjxdUGoaqBRT19CXohoh5Urn/XL75Wnyc6sGKalKBDuj+R9wLYkOEFBhHTGnDlvDv8XKD+FpLk2cnzlaeuDnX/Y9dTV7F/eY5auxpGfqJZFsW5HCjZzNwrjHULqjWXMAtGMmsA2wD3dTlWWKhGSGXIYkf3FhkIXds5jTnNWabwAHAcw/2PEMYhQhtW4bW+7sSxX5xH5bqNxGePzE34RePS2YsySi3jjQ9nM6lu/U2Q5pBiSBJ7t4FbEkQ6UoBuqD2iWHLW8pfVdfEmXS6D+g4f5Ie8WTAlcoeXrVFfedzt+cqWMe7IqfONi/Puicztdk10pWOnx8DoNaj+EMmrZHM7tNy61uvjS68bC8FFkF4f67G7wb5L22Q487B6hMvtf0Uc= root@server1
+
+
+server 2
+/root/.ssh/authorized_keys
+
+Linux
+Git
+AWS instance launch(EC2)
+maven
+Password/Passwordless Communication
+Tomcat
+Jenkins
+Plugin based deployment
+CI/CD
+DCL
