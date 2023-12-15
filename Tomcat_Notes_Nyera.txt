@@ -1,0 +1,311 @@
+Class 17
+================================================================
+Web application
+===============
+Applications accessed via web browsers is called as web application
+Technologies used for developing web applications
+  - Java
+  - .Net 
+  - Python
+  - PHP
+  - Node JS (MEAN)
+  - Ruby on rails
+  - HTML/CSS/Javascript
+  - Cold Fusion
+
+What is the runtime for Web applications?
+Web/Application servers are the runtime for running web applications.
+  - Apache (PHP/HTML/Python)
+  - Nginx (PHP/HTML/Python)
+  - Apache Tomcat  (Java)
+  - IIS (.NET)
+  - Weblogic (Java)
+  - JBoss (Java)
+  - Sun glassfish (Java)
+  - Pramati Application Server (Java)
+  - Websphere (Java)
+
+Webserver
+=========
+A Web server is a program that uses HTTP/HTTPS (Hypertext Transfer Protocol) protocol to serves web content (HTML and static content) to users.
+
+Ex:
+===
+	Apache Tomcat
+	Apache HTTP server (Python/php applications)
+	Nginx (pronounced engine X) (Python/php applications)
+	IBM HTTP server (IHS)
+	Oracle iplanet web server
+	Internet Information Server (IIS) (.net applications)
+
+
+
+Application Server
+==================
+An application server is a container upon which you can build and expose business logic and processes to client applications through various protocols including HTTP in a n-tier architecture.
+Web server features + transaction management + Directory services + EJB containers etc..
+
+Ex:
+===
+	Apache Tomcat
+	JBoss/WildFly - RedHat
+	WebLogic - Oracle
+	WebSphere Application Server - IBM
+	WebSphere Liberty Profile - IBM
+	Galssfish -SUN
+
+Why Web Servers ?
+- To deploy any web application need web server.
+- Webservers comes with common functionalities where every web application requires.
+	. http/https implementations
+	. Multi threading capabilities, using thread we can handle multiple requests concurrently
+	. Application lifecycle management.
+	. Built in security
+	  .... etc.
+
+
+Apache Tomcat
+=============
+- Tomcat or Apache Tomcat developed by Apache Software Foundation (ASF).
+- Tomcat is a light weight, open source web container/server.
+- Tomcat is used to deploy and running the java based web applications.
+
+
+Ubuntu:
+=======
+sudo apt-get update
+
+sudo add-apt-repository ppa:openjdk-r/ppa
+
+sudo apt-get install openjdk-8-jdk
+
+/usr/lib/jvm/java-8-openjdk-amd64/bin
+
+/usr/lib/jvm/java-8-openjdk-amd64
+
+cd /home/ubuntu
+vi .profile ---> Path setting
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME
+PATH=$PATH:$JAVA_HOME/bin
+export PATH
+
+
+sudo wget https://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz
+
+https://downloads.apache.org/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz
+sudo tar -xvf apache-tomcat-8.5.50.tar.gz
+
+sudo mv apache-tomcat-8.5.50 tomcat
+
+sudo chmod 755 -R tomcat
+
+
+
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_65
+PATH= ======;%JAVA_HOME%\bin
+
+Tomcat directory structure:
+===========================
+
+bin:
+====
+- It contains tomcat's binaries and startup scripts.
+- Tomcat's shell and batch files are found in Tomcat's bin directory.  
+- These files support "actions" beyond starting and stopping Tomcat.
+
+Ex: startup.bat
+	sh startup.sh
+
+conf:
+=====
+conf: 
+- It contains global configuration applicable to all the webapps. 
+- The default installation provides:
+ . One Policy File: 
+	 catalina.policy for specifying security policy.
+ . Two Properties Files: 
+	 catalina.properties and logging.properties,
+ . Four Configuration XML Files: 
+	 server.xml (Tomcat main configuration file), 
+	 web.xml (global web application deployment descriptors), 
+	 context.xml (global Tomcat-specific configuration options),
+	 tomcat-users.xml (a database of user, password and role for authentication and access control).
+- The conf also contain a sub-directory for each engine, e.g., Catalina, which in turn contains a 
+sub-sub-directory for each of its hosts, e.g., localhost. 
+- You can place the host-specific context information (similar to context.xml, but named as webapp.xml for each webapp under the host).
+
+lib:
+=== 
+- Keeps the JAR-file that are available to all webapps. 
+- The default installation include servlet-api.jar (Servlet), jasper.jar (JSP) and jasper-el.jar (EL). 
+- You may also keep the JAR files of external package here, such as MySQL JDBC driver (mysql-connector-java-5.1.{xx}-bin.jar) 
+and JSTL (jstl.jar and standard.jar).
+
+logs: 
+====
+- Contains the engine logfile Catalina.{yyyy-mm-dd}.log, host logfile localhost.{yyyy-mm-dd}.log, and other application logfiles such as manger and host-manager. 
+- The access log (created by the AccessLogValve) is also kept here.
+
+webapps:
+=====
+- The default appBase - web applications base directory of the host localhost.
+
+work: 
+=====
+- Contains the translated servlet source files and classes of JSP/JSF. 
+- Organized in hierarchy of engine name (Catalina), host name (localhost), webapp name, followed by the Java classes package structure.
+
+temp: 
+====
+- temporary files.
+
+Port number Tomcat:
+===============================
+Go to the conf directory and open the server.xml and you will find below lines.
+ <Connector port="8080" protocol="HTTP/1.1"
+ connectionTimeout="20000"
+ redirectPort="8443" />
+Replace the 8080 with any port number.
+
+How to stop the tomcat server?
+APACHE_HOME Dir\bin
+shutdown.bat (OR) > catalina.bat stop
+MAC/Linux: 
+shutdown.sh (OR) > catalina.sh stop
+
+
+How to start the tomcat server?
+APACHE_HOME Dir\bin
+startup.bat
+MAC/Linux: 
+startup.sh
+
+
+Admin Console:
+==============
+- Tomcat provides a web based administration console which can be started via the following link:
+http://localhost:8080/manager/html
+- Tomcat manager is the web application, using this we manage applications running 
+on tomcat. By default access is restricted to this application.
+- Remove the restriction to manager application
+Open the /webapps/manager/META-INF/context.xml file and 
+remove the <Value> .......</Value> from this file.
+- Add user to access tomcat manager application as follows.
+Open the tomcat-users.xml file which is available in conf directory.
+# The tomcat-users.xml file should look something like this:
+<tomcat-users>
+<role rolename="manager"/>
+	<role rolename="admin"/>
+	<role rolename="manager-gui"/>  
+    <role rolename="manager-script"/>
+	<role rolename="manager-jmx"/>
+    <role rolename="manager-status"/>
+    <role rolename="admin-gui"/>
+    <role rolename="admin-script"/>
+	<user username="tomcat" password="tomcat" roles="admin,manager,manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+</tomcat-users>
+
+Server Status & Manager App:
+============================
+- To access the server status application and Manager app, tomcat 7 onwards below roles as introduced.
+manager-gui : allows access to the HTML GUI and the Server Status and Manager App pages
+admin-gui : allows access to the Host Manager page.
+- If you provide add below line in tomcat-users.xml, we will get the access.
+
+<user username="tomcat" password="tomcat" roles="manager-gui"/>
+
+
+Host Manager:
+============
+- To access the host manager application, tomcat 7 onwards below roles as introduced.
+admin-gui - allows access to the HTML GUI
+If you provide add below line in tomcat-users.xml, we will get the access for below 
+apps(Buttons)
+<user username="tomcat" password="tomcat" roles="admin-gui"/>
+
+
+
+Ex:
+===
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <artifactId>tomcatmaven</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>tomcatmaven Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+  </dependencies>
+  <build>
+    <finalName>tomcatmaven</finalName>
+    <plugins>
+    <plugin>
+		<groupId>org.apache.tomcat.maven</groupId>
+		<artifactId>tomcat7-maven-plugin</artifactId>
+		<version>2.2</version>
+		
+                 
+		<configuration>
+			<url>http://localhost:2019/manager/text</url>
+			<server>TomcatServer</server>
+			<path>/tomcatmaven</path>
+		</configuration>
+		 
+	</plugin>
+    </plugins>
+  </build>
+</project>
+
+
+under settings.xml
+==================
+<server>
+       <id>TomcatServer</id>
+       <username>tomcat</username>
+       <password>tomcat</password>
+</server>
+
+==============================================================
+install tomcat
+
+sudo apt update -y
+sudo apt install java
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.tar.gz
+tar -xvzf apache-tomcat-9.0.84.tar.gz
+
+bin/
+
+conf/
+
+lib/
+
+logs/
+
+temp/
+
+webapps/
+
+work/
+http://54.225.11.180:8081/canara/
