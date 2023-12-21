@@ -55,16 +55,56 @@ udp6       0      0 ::1:323                 :::*                                
 
 ps -ef ===> to check the process id
 
+
+===============================================================
+
+Class 20
 Manage jenkins
 ==================================
 System Configuration
+====
 plugin
 
 
 
 Security
+======================
 users
 
 
 Tools and Actions
+======================================
 Prepare for shutdown
+
+Reload Configuration from Disk
+Discard all the loaded data in memory and reload everything from file system. Useful when you modified config files directly on disk.
+
+
+
+
+root ==> /root
+
+ubuntu ===> /home/ubuntu
+
+jenkins ==> /var/lib/jenkins
+
+
+Job creation
+==================================
+
+General
+
+Source Code Management ==> Git
+
+Build Triggers
+
+Build Environment
+
+Build Steps
+
+Post-build Actions
+
+
+How to take backup ?
+on job folder
+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
