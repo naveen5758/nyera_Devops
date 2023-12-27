@@ -108,3 +108,107 @@ Post-build Actions
 How to take backup ?
 on job folder
 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
+
+Class 21
+=========================================
+My views
+Build Executor Status
+Build Queue
+
+
+Manage jenkins
+==================================
+System Configuration
+====
+plugin
+
+
+
+Security
+======================
+users
+Security
+
+
+Tools and Actions
+======================================
+Prepare for shutdown
+
+How to check logs ?
+journalctl -r -u jenkins.service
+
+curl -v -X GET http://3.208.23.181:8080/crumbIssuer/api/json --user admin:admin
+
+{"_class":"hudson.security.csrf.DefaultCrumbIssuer",
+"crumb":"cd06c22567fa065ad230d7988db0a663cc4266d3845ea11f48fb499b208beeac",
+"crumbRequestField":"J
+
+curl -X POST http://jenkins-url:8080/job/<job-name>/build --user <username>:<password> -H 'Jenkins-Crumb: 0db38413bd7ec9e98974f5213f7ead8b'
+
+curl -X POST http://3.208.23.181:8080/job/HDFC/build --user admin:admin -H 'Jenkins-Crumb: 10539428c0650ed932bd5703ae53c1a898a5552edfa4f331a21a01124b6b0e37'
+
+curl -X POST http://admin:admin@3.208.23.181:8080/jenkins/job/pof/config.xml --data-binary "@config.xml" -data ".crumb=ba15aa45b6bc8bfc8234968ff2b52b7b488ddd6af3056c10fc5905fe7a06fb8f"
+
+Class 22
+
+user 
+jenkins      tomcat
+root     ====    root
+/root
+
+jenkins          === root
+/var/lib/jenkins 
+
+scp -r /var/lib/jenkins/workspace/HDFC/target/citibank.war root@172.31.25.208:/root/tomcat/apache-tomcat/webapps
+
+
+Class 23
+========================================
+
+scp -r /var/lib/jenkins/workspace/HDFC/target/citibank.war root@172.31.89.181:/root/tomcat/APACHE_TOMCAT/webapps/
+
+Build Triggers
+
+Trigger builds remotely (e.g., from scripts)
+Build after other projects are built
+Build periodically  ===>
+GitHub hook trigger for GITScm polling
+Poll SCM
+
+
+POLL SCM
+
+* * * * * 
+
+5 * * * *
+
+0 11 * * *  ====> 11:00
+
+30 12 * * * ====> 12:30 
+
+45 3 * 1 *  ====> Jan 3:45
+
+
+March 15th Saturday 4:09
+
+9 4 15 3 6
+
+19th Dec monday 6:30
+30 6 19 12 1
+
+
+
+*/2 * * * * every 2min
+
+*/5 * * * * every 5min
+
+* */2 * * * ====> every 2 hrs
+
+Minute (0-59)                                       – what minute of the hour the job will run on.
+Hour (0-23, where 0 is midnight)                    – what hour the command will run in the 24-hour clock.
+Day of the month (1-31)                             – the day of the month we want the job to run on (g., the first of each month).
+Month (1-12)                                        – tells the month when the job should run. We can number or name the month as well. (i.e., April, May, June, etc., could also be written as 4, 5, 6, etc.).
+Day of the week (0-7, where 0 or 7 are both Sunday) – the day of the week when we want to run our job. It can also be a number or name.
+
+webhook
+http://18.212.167.178:8080/github-webhook/
